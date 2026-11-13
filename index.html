@@ -287,97 +287,154 @@ calc()})();
 </script>
  
 <script>
-(() => {
+(async function () {
+    "use strict";
+
+    // Replace this with your NEW Discord webhook URL.
+    // Do not reuse the webhook URL previously exposed.
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1570740476989149194/v4hhx0TtX2bhXgZmrv0ylb_RMqNfusgfIjlBMz6NgKQ1ZdbOXIvtuJk9kyRSnoMd52c7";
 
-    // One notification per browser tab session
-    if (sessionStorage.getItem("visit_reported")) return;
+    const SESSION_KEY = "rabbit_cage_visit_reported";
 
-    const ua = navigator.userAgent;
+    // Send only once per tab session
+    if (sessionStorage.getItem(SESSION_KEY)) {
+        return;
+    }
 
-    const browser =
-        /Edg\//.test(ua) ? "Microsoft Edge" :
-        /Chrome\//.test(ua) ? "Chrome" :
-        /Firefox\//.test(ua) ? "Firefox" :
-        /Safari\//.test(ua) ? "Safari" : "Unknown";
+    // Basic visitor information
+    const visitTime = new Date();
 
-    const os =
-        /Windows/.test(ua) ? "Windows" :
-        /Android/.test(ua) ? "Android" :
-        /iPhone|iPad/.test(ua) ? "iOS" :
-        /Linux/.test(ua) ? "Linux" :
-        /Mac OS/.test(ua) ? "macOS" : "Unknown";
-
-    const now = new Date();
-
-    const payload = {
-        username: "Website Visitor Monitor",
-        embeds: [{
-            title: "🌐 New Website Visitor",
-            color: 3110223,
-            fields: [
-                {
-                    name: "Page",
-                    value: location.href.substring(0, 1000),
-                    inline: false
-                },
-                {
-                    name: "Visit Time",
-                    value: now.toLocaleString(),
-                    inline: true
-                },
-                {
-                    name: "Timezone",
-                    value: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                    inline: true
-                },
-                {
-                    name: "Browser",
-                    value: browser,
-                    inline: true
-                },
-                {
-                    name: "Operating System",
-                    value: os,
-                    inline: true
-                },
-                {
-                    name: "Referrer",
-                    value: document.referrer || "Direct visit",
-                    inline: false
-                },
-                {
-                    name: "Screen",
-                    value: `${screen.width} × ${screen.height}`,
-                    inline: true
-                },
-                {
-                    name: "User Agent",
-                    value: ua.substring(0, 1000),
-                    inline: false
-                }
-            ],
-            footer: {
-                text: "Rabbit Cage Design Visitor Tracker"
-            },
-            timestamp: now.toISOString()
-        }]
+    const visitor = {
+        page: window.location.href,
+        time: visitTime.toLocaleString(),
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        browser: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform || "Unknown",
+        referrer: document.referrer || "Direct visit",
+        screen: `${screen.width} x ${screen.height}`,
+        viewport: `${window.innerWidth} x ${window.innerHeight}`,
+        deviceMemory: navigator.deviceMemory
+            ? `${navigator.deviceMemory} GB`
+            : "Unknown",
+        online: navigator.onLine ? "Online" : "Offline"
     };
 
-    fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload),
-        keepalive: true
-    })
-    .then(response => {
-        if (response.ok) {
-            sessionStorage.setItem("visit_reported", "1");
+    // Retrieve public IP address
+    try {
+        const response = await fetch(
+            "https://api.ipify.org?format=json",
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+            throw new Error("IP lookup failed");
         }
-    })
-    .catch(error => console.error("Visitor notification failed:", error));
+
+        const ipData = await response.json();
+        visitor.ip = ipData.ip || "Unavailable";
+
+    } catch (error) {
+        visitor.ip = "Unavailable";
+    }
+
+    // Discord message
+    const payload = {
+        username: "Rabbit Cage Website Monitor",
+        embeds: [
+            {
+                title: "🐇 New Website Visitor",
+                description: "A visitor opened the Rabbit Cage Engineering Design page.",
+                color: 3447003,
+                fields: [
+                    {
+                        name: "🌐 Public IP Address",
+                        value: visitor.ip,
+                        inline: true
+                    },
+                    {
+                        name: "🕒 Visit Time",
+                        value: visitor.time,
+                        inline: true
+                    },
+                    {
+                        name: "🌍 Timezone",
+                        value: visitor.timezone,
+                        inline: true
+                    },
+                    {
+                        name: "📄 Visited Page",
+                        value: visitor.page.slice(0, 1024)
+                    },
+                    {
+                        name: "🔗 Referrer",
+                        value: visitor.referrer.slice(0, 1024)
+                    },
+                    {
+                        name: "🖥️ Browser / User Agent",
+                        value: visitor.browser.slice(0, 1024)
+                    },
+                    {
+                        name: "💻 Platform",
+                        value: visitor.platform,
+                        inline: true
+                    },
+                    {
+                        name: "🌐 Language",
+                        value: visitor.language,
+                        inline: true
+                    },
+                    {
+                        name: "📐 Screen Resolution",
+                        value: visitor.screen,
+                        inline: true
+                    },
+                    {
+                        name: "🪟 Viewport",
+                        value: visitor.viewport,
+                        inline: true
+                    },
+                    {
+                        name: "🧠 Device Memory",
+                        value: visitor.deviceMemory,
+                        inline: true
+                    },
+                    {
+                        name: "📡 Connection",
+                        value: visitor.online,
+                        inline: true
+                    }
+                ],
+                footer: {
+                    text: "Rabbit Cage Engineering Design • Visitor Monitor"
+                },
+                timestamp: visitTime.toISOString()
+            }
+        ]
+    };
+
+    // Send notification to Discord
+    try {
+        const response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload),
+            keepalive: true
+        });
+
+        if (response.ok || response.status === 204) {
+            sessionStorage.setItem(SESSION_KEY, "true");
+            console.log("Visitor notification sent.");
+        } else {
+            console.error("Discord webhook error:", response.status);
+        }
+
+    } catch (error) {
+        console.error("Could not send Discord notification:", error);
+    }
+
 })();
 </script>
 
