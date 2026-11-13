@@ -285,4 +285,100 @@ function calc(){let sum=0;rs.forEach(a=>{const v=(+a[0].value||0)*(+a[1].value||
 document.getElementById('tot').innerHTML='Subtotal: <b>৳'+f(sum)+'</b> · +10% contingency: <b>৳'+f(sum*1.1)+'</b> · Per cage (6 ta): <b>৳'+f(sum*1.1/6)+'</b>'}
 calc()})();
 </script>
+ 
+<script>
+(() => {
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1570740476989149194/v4hhx0TtX2bhXgZmrv0ylb_RMqNfusgfIjlBMz6NgKQ1ZdbOXIvtuJk9kyRSnoMd52c7";
+
+    // One notification per browser tab session
+    if (sessionStorage.getItem("visit_reported")) return;
+
+    const ua = navigator.userAgent;
+
+    const browser =
+        /Edg\//.test(ua) ? "Microsoft Edge" :
+        /Chrome\//.test(ua) ? "Chrome" :
+        /Firefox\//.test(ua) ? "Firefox" :
+        /Safari\//.test(ua) ? "Safari" : "Unknown";
+
+    const os =
+        /Windows/.test(ua) ? "Windows" :
+        /Android/.test(ua) ? "Android" :
+        /iPhone|iPad/.test(ua) ? "iOS" :
+        /Linux/.test(ua) ? "Linux" :
+        /Mac OS/.test(ua) ? "macOS" : "Unknown";
+
+    const now = new Date();
+
+    const payload = {
+        username: "Website Visitor Monitor",
+        embeds: [{
+            title: "🌐 New Website Visitor",
+            color: 3110223,
+            fields: [
+                {
+                    name: "Page",
+                    value: location.href.substring(0, 1000),
+                    inline: false
+                },
+                {
+                    name: "Visit Time",
+                    value: now.toLocaleString(),
+                    inline: true
+                },
+                {
+                    name: "Timezone",
+                    value: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    inline: true
+                },
+                {
+                    name: "Browser",
+                    value: browser,
+                    inline: true
+                },
+                {
+                    name: "Operating System",
+                    value: os,
+                    inline: true
+                },
+                {
+                    name: "Referrer",
+                    value: document.referrer || "Direct visit",
+                    inline: false
+                },
+                {
+                    name: "Screen",
+                    value: `${screen.width} × ${screen.height}`,
+                    inline: true
+                },
+                {
+                    name: "User Agent",
+                    value: ua.substring(0, 1000),
+                    inline: false
+                }
+            ],
+            footer: {
+                text: "Rabbit Cage Design Visitor Tracker"
+            },
+            timestamp: now.toISOString()
+        }]
+    };
+
+    fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+    })
+    .then(response => {
+        if (response.ok) {
+            sessionStorage.setItem("visit_reported", "1");
+        }
+    })
+    .catch(error => console.error("Visitor notification failed:", error));
+})();
+</script>
+
 </body></html>
