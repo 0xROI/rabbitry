@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3-Tier Rabbit Cage – Engineering Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1ec;--panel:#fff;--ink:#16221d;--mut:#5a6a62;--line:#c9d3cb;--acc:#2f7d4f;--svg:#16221d;--w:#2b7fd0;--o:#d9822b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121a16;--panel:#1b2620;--ink:#e6efe9;--mut:#9bb0a4;--line:#33443b;--acc:#5fc189;--svg:#e6efe9;--w:#5aa7f0;--o:#f0a050}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Barlow,system-ui,sans-serif}
+main{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+h1,h2{font-family:'Barlow Condensed',Barlow,sans-serif;font-weight:600;letter-spacing:.01em;margin:0}
+h1{font-size:2.3rem;line-height:1.1}h2{font-size:1.5rem;margin:36px 0 10px}
+p{margin:6px 0;max-width:70ch;color:var(--mut)}
+#v{height:min(85vh,820px);min-height:440px;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;touch-action:none}
+#v canvas{display:block}
+.tg{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tg label{border:1px solid var(--line);background:var(--panel);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:.9rem}
+.tg input{accent-color:var(--acc);margin-right:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px;overflow-x:auto}
+.box h3{margin:0 0 4px;font-size:1rem}
+svg{max-width:100%;height:auto;display:block}
+svg text{fill:var(--svg);font:11px Barlow,sans-serif}
+.ln{stroke:var(--svg);fill:none;stroke-width:1.4}.th{stroke-width:3}.dm{stroke:var(--acc);stroke-width:.8;fill:none}
+.dt{fill:var(--acc)!important}
+table{border-collapse:collapse;width:100%;background:var(--panel);font-size:.92rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--bg)}
+.tw{overflow-x:auto}
+</style></head><body><main>
+<h1>3-Tier Rabbit Cage</h1>
+<p>6 ta khacha (3 tala × 2 ta), pratita 90 × 60 × 40 cm. Auto nipple pani, dhalu tray, moyla pipe, ar welded feeder.</p>
+
+<h2>3D view</h2>
+<div id="v"></div>
+<div class="tg" id="tg"></div>
+<p>Mouse/angul diye ghurao, scroll/pinch e zoom koro.</p>
+
+<h2>Part-by-part drawing</h2>
+<div class="grid">
+<div class="box"><h3>1. Front view (samner dik)</h3><svg id="sf" viewBox="0 0 340 370"></svg></div>
+<div class="box"><h3>2. Side section (pasher kata chhobi)</h3><svg id="ss" viewBox="0 0 400 370"></svg></div>
+</div>
+<div class="grid" style="margin-top:14px">
+<div class="box"><h3>3. Welded feeder (khabar pot)</h3><svg viewBox="0 0 320 190">
+<path class="ln th" d="M30 150H150V40H30Z"/><path class="ln" d="M30 70H150M30 150L45 165H135L150 150"/>
+<path class="ln" d="M150 40V150" /><path class="ln th" d="M150 80H190V150H150"/>
+<path class="ln" d="M60 40V10M120 40V10M60 10H120" stroke-dasharray="3 3"/>
+<text x="38" y="62">Hopper (khabar dhale)</text><text x="38" y="120">Pellet / khabar</text><text x="156" y="72">Lip 3 cm</text>
+<text x="38" y="182">Slanted bottom: khabar nicher dike jay</text>
+<path class="dm" d="M30 28H150"/><text class="dt" x="70" y="24">18 cm</text>
+<path class="dm" d="M14 40V150"/><text class="dt" x="2" y="100" transform="rotate(-90 8 100)">15 cm</text></svg>
+<p>Feeder ta samner mesh e <b>4 jaygay weld</b> kora. Rabbit khabar chhitiye nosto korte parbe na. Bairer dik theke upor diye khabar dhala jay.</p></div>
+<div class="box"><h3>4. Dhalu tray + moyla pipe</h3><svg viewBox="0 0 340 200">
+<path class="ln th" d="M30 40H210"/><text x="30" y="30">SAMNE (front) uchu</text><text x="150" y="30">Cage floor mesh</text>
+<path class="ln th" d="M30 62L230 112"/><text x="60" y="95" transform="rotate(14 60 95)">GI / PVC sheet tray</text>
+<path class="ln" d="M232 100A16 16 0 0 0 264 100"/><path class="ln" d="M232 100H264" stroke-dasharray="3 3"/>
+<text x="238" y="130">PICHONE (back) nichu</text><text x="238" y="142">110 mm half-pipe gutter</text>
+<path class="dm" d="M30 62V112H230"/><text class="dt" x="34" y="130">slope ~12° (68 cm e 14 cm nama)</text>
+<path d="M120 76l10 6M140 80l10 6M160 85l10 6" stroke="#8a6a3a" stroke-width="3"/>
+<text x="30" y="170">Moyla tray beye pichoner gutter e → stack e → pit.</text>
+<text x="30" y="186">Pani dhale tray porishkar hoy, pani ekoi pipe diye jay.</text></svg></div>
+<div class="box"><h3>5. Nipple pani line</h3><svg viewBox="0 0 320 200">
+<rect x="20" y="10" width="60" height="40" rx="4" class="ln" style="stroke:var(--w)"/><text x="28" y="34">20 L bottle</text>
+<path class="ln" style="stroke:var(--w);stroke-width:5" d="M50 50V70H280"/><text x="190" y="62">MAIN 1/2"</text>
+<rect x="95" y="62" width="22" height="16" class="ln"/><text x="82" y="95">Filter (optional)</text>
+<path class="ln" style="stroke:var(--w);stroke-width:1.5" d="M170 70V110M250 70V110"/><text x="176" y="92">branch 3/8"</text>
+<circle cx="170" cy="114" r="4" fill="var(--w)"/><circle cx="250" cy="114" r="4" fill="var(--w)"/>
+<text x="140" y="135">Nipple (cage er SAMNE)</text>
+<text x="20" y="165">Ekta MAIN pipe (1/2") shudhu. Tar theke 3/8" branch</text>
+<text x="20" y="180">pratita tier e. Regulator lagbe na (20 L, head kom). Shesh e flush valve.</text></svg></div>
+<div class="box" style="grid-column:1/-1"><h3>6. Moyla drain system (onek gula block ekshathe)</h3>
+<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start">
+<svg id="sp" viewBox="0 0 640 215" style="flex:2 1 420px"></svg>
+<svg viewBox="0 0 300 235" style="flex:1 1 240px">
+<line class="ln" x1="10" x2="290" y1="195" y2="195"/>
+<rect x="116" y="20" width="10" height="170" class="ln" fill="var(--line)"/>
+<path class="ln th" style="stroke:var(--o)" d="M20 40L108 44L116 52"/><path class="ln th" style="stroke:var(--o)" d="M20 90L108 94L116 102"/><path class="ln th" style="stroke:var(--o)" d="M20 140L108 144L116 152"/>
+<text x="20" y="32">Tier 3 gutter</text><text x="20" y="82">Tier 2 gutter</text><text x="20" y="132">Tier 1 gutter</text>
+<text x="132" y="60">Y (45°) junction</text><text x="132" y="110">stack 110 mm</text>
+<path class="ln th" d="M126 186L258 190"/><text x="140" y="178">ground drain 1–2%</text>
+<rect x="262" y="176" width="34" height="44" class="ln"/><text x="268" y="202">Pit</text>
+<rect x="116" y="190" width="10" height="6" class="ln" fill="var(--o)"/><text x="40" y="214">Cleanout cap (porishkar)</text>
+</svg></div>
+<p>• <b>Tray slope:</b> samne uchu, pichone nichu. Moyla pichoner gutter e jay, tai samner dik (jekhane tumi kaj koro) poriskar thake.</p>
+<p>• <b>Gutter:</b> pratita tier er pichone ekta 110 mm half-pipe, bame uchu ar dane nichu (190 cm e ~4 cm). Shesh e 110 mm vertical stack e 45° Y-junction diye jore.</p>
+<p>• <b>Common drain:</b> shob block er stack niche ekta 110 mm ground pipe e (1–2% slope) jore. Duita row pith-pith kore boshale ekta drain duita row share kore. Shuru e cleanout cap, shesh e pit/compost/biogas.</p>
+<p>• <b>Flush:</b> gutter er bame uchu matha e hose/valve rakho. Pani chhorle shob moyla stack diye pit e jay, balti lage na.</p></div>
+<div class="box"><h3>7. Nest box (bhitore, back-right corner e)</h3><svg viewBox="0 0 320 190">
+<rect x="20" y="10" width="252" height="168" class="ln th"/>
+<path class="ln" style="stroke:var(--o)" d="M160 40V10H272V94H160V80"/><path class="ln" style="stroke:var(--o)" d="M160 40V94" stroke-dasharray="0"/>
+<path stroke="#8a6a3a" stroke-width="3" d="M180 30l10 6M200 30l10 6M220 30l10 6M240 30l10 6"/>
+<path class="ln" d="M272 178H244L256 122H272"/><path class="ln th" style="stroke:var(--o)" d="M146 178H272" stroke-dasharray="6 3"/><rect x="48" y="140" width="50" height="38" class="ln" style="stroke:var(--o)"/>
+<circle cx="132" cy="178" r="4" fill="var(--w)"/><path class="dm" d="M100 130L158 62"/>
+<text x="164" y="118">Nest box</text><text x="164" y="130">40×30×25 cm</text><text x="170" y="62">Entry 15×15</text>
+<text x="196" y="150">Hay rack</text><text x="160" y="188">Door (samne, dane)</text><text x="52" y="156">Feeder</text><text x="108" y="168">Nipple</text><text x="30" y="108">Samne (front) ↓</text></svg>
+<p>Nest box bhitore, back-right corner e. Kindle er ~3 din age (gestation ~31 din, tai <b>day 28</b> e) door diye bhitore rakho. Bacchara ~3 shaptah por bairer dike ashe, tokhon box ta ber kore nao. Side e doe er dhukar jonno 15×15 cm entry hole, upore khola lid, floor e chhoto drain hole, bhitore hay/straw bedding.</p></div>
+<div class="box"><h3>8. Hay rack (corner V-rack)</h3><svg viewBox="0 0 320 190">
+<path class="ln th" d="M100 20V170"/>
+<path class="ln th" d="M110 40L145 120M210 40L175 120M145 120H175"/>
+<path class="ln" d="M120 40L148 108M135 40L152 98M150 40L158 88M165 40L162 78M180 40L170 88M195 40L174 98M126 80H194" stroke-dasharray="2 3"/>
+<path class="dm" d="M110 28H210"/><text class="dt" x="140" y="24">20 cm</text>
+<text x="216" y="80">V shape, 15 cm unch</text><text x="216" y="94">6 mm rod, 25 mm gap</text>
+<text x="16" y="60">Side wall</text><text x="16" y="74">e weld</text>
+<text x="20" y="182">Floor theke ~25 cm upore (rabbit er mukher level)</text></svg>
+<p>Front-right corner e (door er pashe), side wall e weld, chhoto 20 cm lomba V-shape (upor khola, niche choto). Hay upor diye dewa jay, rabbit niche dik diye khay, tai hay nosto kom hoy. Ekta rack = 1 ta cage.</p></div>
+<div class="box"><h3>9. Tray rail + removable tray</h3><svg viewBox="0 0 320 190">
+<path class="ln" d="M30 30V170"/><path class="ln th" d="M30 70L220 106" style="stroke:var(--svg)"/>
+<path class="ln th" style="stroke:var(--o)" d="M40 62L232 98M40 62V54M232 98V90"/>
+<path class="ln" d="M222 116A16 16 0 0 0 254 116"/><path class="ln th" d="M52 64V80"/>
+<path class="dm" d="M220 60L40 28"/><text class="dt" x="60" y="24">tene bair koro (samner dike)</text>
+<text x="60" y="125">L-angle rail 25×25 (welded, ~12°)</text><text x="60" y="140">Tray (3 cm lip)</text>
+<text x="60" y="155">Stop pin: tray pichone na pore</text><text x="232" y="136">Gutter</text>
+<text x="150" y="84">Tray</text><text x="20" y="182">Tray pichone gutter er upore 3 cm overhang</text></svg>
+<p>Tray ta sudhu rail er upore bosano, weld kora na. Samner dike tene bair kora jay, dhuye abar rakha jay. Samne ~90 cm aisle space rakho (tray 78 cm). Shesh e tray ta gutter er upore thake, tai moyla gutter e porbe.</p></div>
+<div class="box"><h3>10. Cage card holder</h3><svg viewBox="0 0 320 190">
+<rect x="40" y="20" width="150" height="130" rx="4" class="ln"/><rect x="54" y="30" width="122" height="110" class="ln" stroke-dasharray="3 3"/>
+<text x="62" y="48">Cage No:</text><text x="62" y="62">Doe ID / Breed:</text><text x="62" y="76">Mating date:</text><text x="62" y="90">Palpation (+14 din):</text><text x="62" y="104">Nest box (+28 din):</text><text x="62" y="118">Kindle (+31 din):</text><text x="62" y="132">Wean (+28–35 din):</text>
+<path class="ln th" d="M70 20V8M160 20V8M60 8H170"/>
+<text x="196" y="60">Clear sleeve</text><text x="196" y="74">(PVC/acrylic)</text><text x="196" y="88">~ 12×9 cm</text>
+<text x="196" y="110">2 ta clip</text><text x="196" y="124">top front rail e</text></svg>
+<p>Card ta clear sleeve e, marker diye lekha. Muchle abar likhte pare, tai paper alada bodlano jay. Sleeve sorano jay emon clip diye rakho.</p></div>
+</div>
+
+<h2>Cut list ও spec</h2>
+<div class="tw"><table>
+<tr><th>Part</th><th>Spec</th><th>Poriman</th></tr>
+<tr><td>Frame post</td><td>25×25×2 mm MS square tube (ba 1" GI pipe)</td><td>6 ta × 208 cm</td></tr>
+<tr><td>Floor/ceiling rail</td><td>Same tube, welded</td><td>~ 32 m (floor + ceiling × 3 tier)</td></tr>
+<tr><td>Floor mesh</td><td>14 gauge welded wire, 25×12.5 mm (1"×½")</td><td>6 ta × 90×60 cm</td></tr>
+<tr><td>Side / back / top mesh</td><td>14 gauge, 50×25 mm (2"×1")</td><td>Back 90×40, side 60×40, top 90×60 per cage</td></tr>
+<tr><td>Front door</td><td>Same mesh, frame 45×38 cm, dane hinge, bame latch. Bame 45 cm panel fixed (feeder + nipple)</td><td>6 ta</td></tr>
+<tr><td>Feeder</td><td>GI sheet 0.5 mm, mesh e weld</td><td>6 ta × 18×15 cm</td></tr>
+<tr><td>Nest box (6 ta)</td><td>Wood/plastic 40×30×25 cm, side entry 15×15, drain hole</td><td>6 ta (kindle er shomoy bhitore dewa)</td></tr><tr><td>Hay rack</td><td>6 mm rod V-rack 20×15 cm, front corner e weld</td><td>6 ta</td></tr><tr><td>Tray rail</td><td>L-angle 25×25, weld, ~12°, stop pin</td><td>3 ta × 78 cm per tier</td></tr><tr><td>Card holder</td><td>Clear sleeve ~12×9 cm + 2 clip</td><td>6 ta</td></tr><tr><td>Water main</td><td>1/2" PVC/CPVC, ekta-i, left side e riser, 20 L bottle porjonto</td><td>~ 2.2 m + ~ 2 m header</td></tr><tr><td>Water branch</td><td>3/8" (10–12 mm) pipe, pratita tier e 1 ta</td><td>3 ta × ~2.5 m (cage er samne)</td></tr><tr><td>Nipple drinker</td><td>Rabbit-type nipple (branch theke)</td><td>6 ta</td></tr>
+<tr><td>Dhalu tray</td><td>GI 0.5 mm ba PVC sheet, ~12° slope (samne uchu, pichone nichu)</td><td>6 ta × 90×78 cm</td></tr>
+<tr><td>Gutter</td><td>110 mm PVC half-pipe, dane 2% slope (190 cm e ~4 cm)</td><td>3 ta × 190 cm</td></tr>
+<tr><td>Stack (down pipe)</td><td>110 mm PVC, pratita block er dane, 3 ta 45° Y-junction</td><td>~ 170 cm per block</td></tr><tr><td>Common ground drain</td><td>110 mm PVC, 1–2% slope, cleanout cap shuru e</td><td>Shob block er length + pit porjonto</td></tr><tr><td>Pit / chamber</td><td>Brick/RCC, solid-liquid alada korle bhalo</td><td>Farm size onujayi</td></tr>
+</table></div>
+<h2>Shob size (cm)</h2><div class="tw"><table><tr><th>Jinish</th><th>Size (cm, jodi na bola thake)</th><th>Kothay / note</th></tr><tr><td>Pura structure</td><td>180 (lomba) × 60 (gobhir) × 208 (unch)</td><td>Gutter shoho gobhirota ~75; tank shoho unch ~250. Samne aisle 90–100 cm</td></tr><tr><td>Ekta cage (bhitor)</td><td>90 × 60 × 40</td><td>Shob tier e same. 6 ta cage</td></tr><tr><td>Tier duri</td><td>60</td><td>Floor theke floor</td></tr><tr><td>Floor er uchchota (ground theke)</td><td>45 / 105 / 165</td><td>Tier 1 / 2 / 3</td></tr><tr><td>Frame tube</td><td>25 × 25 × 2 mm MS</td><td>Post 6 ta × 208 cm</td></tr><tr><td>Floor mesh</td><td>14 gauge, 25 × 12.5 mm (1″×½″)</td><td>Rabbit er pa na atkanor jonno</td></tr><tr><td>Side/back/top/door mesh</td><td>14 gauge, 50 × 25 mm (2″×1″)</td><td></td></tr><tr><td>Door</td><td>45 × 38</td><td>Samne, dane. Hinge dane, latch bame</td></tr><tr><td>Fixed panel</td><td>45 chora</td><td>Samne, bame (feeder + nipple)</td></tr><tr><td>Feeder</td><td>18 chora × 15 unch</td><td>Front-left, floor er ~3 cm upore theke. Mesh e weld</td></tr><tr><td>Nipple</td><td>Floor theke 26 unch</td><td>Bam dik theke 40 cm, fixed panel e</td></tr><tr><td>Hay rack</td><td>20 lomba × 15 unch, V-shape</td><td>6 mm rod, gap 25 mm. Front-right corner, floor theke 20–25 upore</td></tr><tr><td>Nest box</td><td>40 × 30 × 25</td><td>Back-right corner, day 28 e bhitore. Entry hole 15 × 15</td></tr><tr><td>Card holder</td><td>~12 × 9 clear sleeve</td><td>Samne bairer dike, floor theke ~24 upore</td></tr><tr><td>Tray</td><td>88 × 78, 3 cm lip</td><td>GI 0.5 mm ba PVC sheet, ~12° slope (~14 cm nama)</td></tr><tr><td>Tray rail</td><td>L-angle 25 × 25, 78 lomba</td><td>3 ta per tier. Tray floor er ~3 cm niche, pichone gutter er upore 3 cm overhang</td></tr><tr><td>Gutter</td><td>110 mm PVC half-pipe, 190 lomba</td><td>Per tier 1 ta, 2% slope (~4 cm nama), pichone ~13 cm duure</td></tr><tr><td>Stack</td><td>110 mm PVC, ~170 unch</td><td>Dane. 3 ta 45° Y-junction</td></tr><tr><td>Ground drain</td><td>110 mm PVC, 1–2% slope</td><td>Cleanout cap shuru e</td></tr><tr><td>Water bottle</td><td>20 L</td><td>Frame er upore, bame, post er upor chhoto plate e</td></tr><tr><td>Water main</td><td>1/2″ (~16 mm), ~2 m</td><td>Left-back e vertical</td></tr><tr><td>Water branch</td><td>3/8″ (~10–12 mm), ~2.5 m per tier</td><td>Cage er samne, floor theke ~34 upore</td></tr></table></div>
+<h2>Full version cost estimate (৳ Taka)</h2>
+<p>Dam gulo amar <b>shomvabbo estimate</b>, Bangladesh er bazar dam search kore verify korte pari ni. Tai neeche rate/poriman tomar nijer dokan er dam diye bodle nao, total auto hishab hoye jabe.</p>
+<div class="tw"><table id="ct"><tr><th>Jinish</th><th>Ekok</th><th>Poriman</th><th>Rate (৳)</th><th>Total (৳)</th></tr></table></div>
+<p id="tot" style="color:var(--ink);font-size:1.1rem"></p>
+<h2>Budget version: ৳20,440 total (6 cage)</h2><p>Ei version e MS tube/weld/PVC half-pipe bad diye shosta jinish. Size ar layout ager moto, shudhu material bodlano. Dam amar estimate, local dokan e dam jiggesh kore nio.</p><div class="tw"><table><tr><th>Part</th><th>Ki diye</th><th>৳</th></tr><tr><td>Frame (post + rail)</td><td>Bhalo bamboo ba 2″×2″ kath, size same. Local mistri diye. Perek/taar diye jora, weld na</td><td>7,000</td></tr><tr><td>Floor mesh</td><td>1″×½″ welded mesh, 40 sq ft (ei ta kata jabe na, rabbit er pa er jonno)</td><td>1,800</td></tr><tr><td>Side/back/top/door</td><td>1″ galvanized wire netting ba shosta mesh, ~100 sq ft</td><td>1,800</td></tr><tr><td>Door hinge + latch</td><td>Shosta hook-latch, 6 ta</td><td>360</td></tr><tr><td>Tray (6 ta)</td><td>Pathla GI/tin sheet, bamboo/kath rail er upor, 12°</td><td>2,000</td></tr><tr><td>Gutter + stack + pit</td><td>Gutter: tin sheet bonkano. Stack ar 3 m drain: 3″–4″ PVC. Pit: chhoto mati/brick</td><td>3,200</td></tr><tr><td>Pani</td><td>20 L bottle + 1/2″ pipe + 6 ta nipple</td><td>1,480</td></tr><tr><td>Feeder + hay rack</td><td>Tin scrap + tar, mesh e bandha</td><td>540</td></tr><tr><td>Nest box</td><td>Shudhu 2 ta, plastic crate/kather box, duita shob cage e ghure ghure</td><td>600</td></tr><tr><td>Card</td><td>Kagoj + plastic sleeve</td><td>60</td></tr><tr><td>Rust/bamboo treatment</td><td>Tar, rong, ba kerosene-tel</td><td>600</td></tr><tr><td>Transport + misc</td><td></td><td>1,000</td></tr><tr><th colspan="2">Total</th><th>20,440</th></tr></table></div><p>• <b>Jhuki:</b> bamboo/kath urine e 2–3 bochhor e pochte pare, tar treatment dite hobe. MS tube e 10+ bochhor cholbe, kintu ৳20k e hobe na.</p><p>• <b>Ager 3D te</b> MS tube dekhano, ekhane bamboo/kath hobe, size ar position same.</p><p>• <b>Shed/chhad/fan</b> ei budget e nei. Garom e eta lagbe.</p><p>• <b>Age 2 ta cage (1 tier)</b> banao (~৳7–8k), 2–3 mash chalie dekho, tarpor baki.</p><h2>Engineer er notes</h2>
+<p>• Tier pitch 60 cm: upor er tray niche er cage er chhade lage na, tai moyla niche cage e porbe na.</p>
+<p>• Nipple cage er samne: pani line aisle er dike, nipple front door er mesh diye bhitore dhuke. Tai bairer theke check, clean, replace kora jay, cage khulte hoy na.</p>
+<p>• Tray samne uchu, pichone nichu. Gutter, stack, drain shob pichone, jate samner dik e kaj kora jay.</p>
+<p>• Ground clearance ~ 45 cm, niche gutter ar bucket boshanor jonno.</p>
+<p>• Floor mesh 1"×½" rakho jate pa na atke. Mother (doe) cage e nest box alada dite hobe, otar jayga cage er pashe.</p>
+<p>• Size NZW/California medium breed er jonno. Boro breed hole 100×70 kore nao, ar pitch 65 cm koro.</p>
+<p>• Bangladesh er brishti/humidity: MS tube galvanize ba epoxy paint koro, tahole morcha dhore na.</p>
+<p>• Ei drawing concept stage er. Cut korar age nijer mesh/pipe size ar welder er sathe dimension mille nao.</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+// ---------- 2D drawings ----------
+const NS='http://www.w3.org/2000/svg';
+function el(p,t,a,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt)e.textContent=txt;p.appendChild(e);return e}
+const T=[0,1,2].map(i=>45+60*i);
+(function(){const s=document.getElementById('sf'),k=1.5,X=x=>30+x*k,Y=y=>350-y*k;
+ el(s,'line',{x1:10,x2:330,y1:Y(0),y2:Y(0),class:'ln'});
+ [0,90,180].forEach(x=>el(s,'rect',{x:X(x)-2,y:Y(208),width:4,height:208*k,class:'ln',fill:'var(--svg)'}));
+ T.forEach((f,i)=>{[0,1].forEach(c=>{const x0=c*90;
+  el(s,'rect',{x:X(x0),y:Y(f+40),width:90*k,height:40*k,class:'ln'});
+  for(let g=1;g<6;g++)el(s,'line',{x1:X(x0+g*15),x2:X(x0+g*15),y1:Y(f+40),y2:Y(f),stroke:'var(--line)','stroke-width':.6});
+  el(s,'rect',{x:X(x0+10),y:Y(f+22),width:27,height:22,class:'ln',stroke:'var(--o)'});el(s,'rect',{x:X(x0+45),y:Y(f+39),width:45*k,height:38*k,class:'ln th',stroke:'var(--o)'});el(s,'text',{x:X(x0+56),y:Y(f+18)},'Door');
+  el(s,'circle',{cx:X(x0+40),cy:Y(f+26),r:3,fill:'var(--w)'});el(s,'line',{x1:X(x0),x2:X(x0+90),y1:Y(f+34),y2:Y(f+34),stroke:'var(--w)','stroke-width':1.5});
+  el(s,'line',{x1:X(x0),x2:X(x0+90),y1:Y(f-3),y2:Y(f-3),class:'ln th'});});
+  el(s,'text',{x:X(185),y:Y(f+18)},'Tier '+(i+1));});
+ el(s,'rect',{x:X(10),y:Y(232),width:50,height:20,class:'ln',stroke:'var(--w)'});el(s,'text',{x:X(10)+4,y:Y(232)+14},'20 L bottle');
+ el(s,'line',{x1:X(195),x2:X(195),y1:Y(25),y2:Y(0),class:'ln th'});
+ [[0,'0'],[90,'90'],[180,'180']].forEach(a=>el(s,'text',{x:X(a[0])-6,y:365,class:'dt'},a[1]));
+ el(s,'path',{d:`M${X(0)} ${Y(-8)+8}H${X(180)}`,class:'dm'});
+ el(s,'text',{x:X(60),y:Y(0)+22,class:'dt'},'180 cm (2 cage)');
+ el(s,'text',{x:X(188),y:Y(60)},'Down');el(s,'text',{x:X(188),y:Y(60)+12},'pipe');
+})();
+(function(){const s=document.getElementById('ss'),k=1.5,Z=z=>40+z*k,Y=y=>350-y*k;
+ el(s,'line',{x1:10,x2:390,y1:Y(0),y2:Y(0),class:'ln'});
+ [0,60].forEach(z=>el(s,'rect',{x:Z(z)-2,y:Y(208),width:4,height:208*k,class:'ln',fill:'var(--svg)'}));
+ T.forEach((f,i)=>{
+  el(s,'line',{x1:Z(0),x2:Z(60),y1:Y(f),y2:Y(f),class:'ln th'});
+  el(s,'line',{x1:Z(0),x2:Z(60),y1:Y(f+40),y2:Y(f+40),class:'ln'});
+  el(s,'line',{x1:Z(60),x2:Z(60),y1:Y(f),y2:Y(f+40),stroke:'var(--svg)','stroke-dasharray':'2 2'});
+  el(s,'line',{x1:Z(0),y1:Y(f-3),x2:Z(68),y2:Y(f-17),class:'ln th',stroke:'var(--o)'});
+  el(s,'path',{d:`M${Z(66)} ${Y(f-17)}a${8*k} ${8*k} 0 0 0 ${16*k} 0`,class:'ln'});
+  el(s,'rect',{x:Z(2),y:Y(f+20),width:14*k,height:13*k,class:'ln',stroke:'var(--o)'});
+  el(s,'circle',{cx:Z(-4),cy:Y(f+34),r:3,fill:'var(--w)'});
+  el(s,'line',{x1:Z(-4),x2:Z(-4),y1:Y(f+34),y2:Y(f+26),stroke:'var(--w)','stroke-width':2});el(s,'line',{x1:Z(-4),x2:Z(8),y1:Y(f+26),y2:Y(f+26),stroke:'var(--w)','stroke-width':2});
+  el(s,'text',{x:Z(76),y:Y(f+8)},'Tier '+(i+1));});
+ const d=(x1,y1,x2,y2,t,tx,ty)=>{el(s,'path',{d:`M${x1} ${y1}L${x2} ${y2}`,class:'dm'});el(s,'text',{x:tx,y:ty,class:'dt'},t)};
+ d(Z(-8),Y(45),Z(-8),Y(85),'40',Z(-8)-16,Y(65));
+ d(Z(-8),Y(105),Z(-8),Y(45),'60 pitch',Z(-8)-6,Y(75)+58);
+ d(Z(0),Y(30),Z(60),Y(30),'60 cm depth',Z(10),Y(30)+12);
+ el(s,'text',{x:Z(70),y:Y(f=105-30)},'14 cm slope');
+ el(s,'text',{x:Z(0),y:Y(-10)+16},'Samne ↑ (front)   Pichone (back) →');
+ el(s,'text',{x:Z(66),y:Y(120)},'Gutter');
+})();
+(function(){const s=document.getElementById('sp');
+[[40,86],[137,130]].forEach(r=>{for(let i=0;i<4;i++){const x=20+i*135;
+el(s,'rect',{x:x,y:r[0],width:117,height:39,class:'ln'});el(s,'text',{x:x+6,y:r[0]+24},'Block '+(i+1));
+el(s,'line',{x1:x,x2:x+117,y1:r[1],y2:r[1],class:'ln th',stroke:'var(--o)'});
+el(s,'line',{x1:x+117,x2:x+117,y1:r[1],y2:108,class:'ln'});el(s,'circle',{cx:x+117,cy:r[1],r:4,fill:'var(--svg)'});}});
+el(s,'line',{x1:137,x2:585,y1:108,y2:108,class:'ln th',stroke:'var(--w)'});
+el(s,'rect',{x:585,y:90,width:50,height:36,class:'ln'});el(s,'text',{x:590,y:112},'Pit');
+el(s,'text',{x:200,y:102,class:'dt'},'Common ground drain 110 mm, 1–2% slope →');
+el(s,'text',{x:20,y:20},'Samne (front) – kaj korar dik');el(s,'text',{x:20,y:206},'Samne (front)');
+el(s,'text',{x:20,y:122},'Cleanout cap');})();
+// ---------- 3D ----------
+const host=document.getElementById('v');
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,1,3000);
+const rn=new THREE.WebGLRenderer({antialias:true,alpha:true});rn.setPixelRatio(Math.min(devicePixelRatio,2));host.appendChild(rn.domElement);
+cam.position.set(330,230,380);
+const oc=new THREE.OrbitControls(cam,rn.domElement);oc.target.set(130,100,0);oc.update();
+sc.add(new THREE.AmbientLight(0xffffff,.7));const dl=new THREE.DirectionalLight(0xffffff,.8);dl.position.set(200,400,300);sc.add(dl);
+function size(){const w=host.clientWidth,h=host.clientHeight;rn.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()}
+addEventListener('resize',size);size();
+const G={};['Frame','Mesh','Trays','Gutter + pipe','Water','Feeders','Nest box','Hay rack','Cage card','Door'].forEach(n=>{G[n]=new THREE.Group();sc.add(G[n])});
+const M=(c,o)=>new THREE.MeshLambertMaterial(Object.assign({color:c},o||{}));
+const mFr=M(0x3b4a43),mTr=M(0xb9c2c6),mPv=M(0xe9e4d6),mWt=M(0x2b7fd0),mFd=M(0xd9822b),mDk=M(0x6e7a74);
+function bx(g,cx,cy,cz,w,h,d,m){const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(cx,cy,cz);G[g].add(o);return o}
+function cy(g,x,y,z,r,l,m,ax){const o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,16),m);o.position.set(x,y,z);if(ax==='x')o.rotation.z=Math.PI/2;if(ax==='z')o.rotation.x=Math.PI/2;G[g].add(o);return o}
+const cv=document.createElement('canvas');cv.width=cv.height=64;const cx=cv.getContext('2d');cx.strokeStyle='rgba(60,70,66,.9)';cx.lineWidth=3;cx.strokeRect(0,0,64,64);
+const tx=new THREE.CanvasTexture(cv);tx.wrapS=tx.wrapT=THREE.RepeatWrapping;
+function mesh(cx_,cy_,cz_,w,h,rx,ry,cell){const t=tx.clone();t.needsUpdate=true;t.repeat.set(w/cell,h/cell);
+ const o=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:t,transparent:true,side:THREE.DoubleSide,opacity:.9}));
+ o.position.set(cx_,cy_,cz_);o.rotation.set(rx,ry,0);G.Mesh.add(o)}
+// frame posts
+[0,90,180].forEach(x=>[-30,30].forEach(z=>bx('Frame',x,104,z,3,208,3,mFr)));
+T.forEach((f,i)=>{
+ [f,f+40].forEach(y=>{[-30,30].forEach(z=>bx('Frame',90,y,z,180,3,3,mFr));[0,90,180].forEach(x=>bx('Frame',x,y,0,3,3,60,mFr))});
+ [0,90,180].forEach(x=>{const r=bx('Frame',x,f-12.5,-4,3,1.5,78,mFr);r.rotation.x=-0.2});
+ for(let c=0;c<2;c++){const x0=c*90,xc=x0+45;
+  mesh(xc,f,0,90,60,-Math.PI/2,0,2.5);            // floor 1"x1/2"
+  mesh(xc,f+40,0,90,60,Math.PI/2,0,5);            // top
+  mesh(xc,f+20,-30,90,40,0,0,5);                  // back
+  mesh(xc,f+20,30,90,40,0,0,5);                   // front door
+  mesh(x0+90,f+20,0,60,40,0,Math.PI/2,5);         // side/divider
+  if(c===0)mesh(0,f+20,0,60,40,0,Math.PI/2,5);
+  // feeder (welded inside front wall)
+  bx('Feeders',x0+22,f+10,25,18,14,8,mFd);bx('Feeders',x0+22,f+3,22,18,3,14,mFd);
+  bx('Nest box',x0+68,f+13,-15,40,25,30,M(0xb08a5a,{transparent:true,opacity:.8}));
+  [.45,-.45].forEach((a,j)=>{const r=bx('Hay rack',x0+80+j*6,f+28,20,1,15,20,M(0x7a8a3a));r.rotation.z=a});
+  bx('Cage card',x0+14,f+24,31.5,14,10,.6,M(0xffffff));
+  const mDr=M(0xd9822b),mBk=M(0x222222);
+  [f+1,f+39].forEach(y=>bx('Door',x0+67.5,y,31.5,45,2,2,mDr));
+  [x0+45,x0+90].forEach(x=>bx('Door',x,f+20,31.5,2,38,2,mDr));
+  bx('Door',x0+47,f+20,33,2,8,3,mBk);[f+8,f+32].forEach(y=>cy('Door',x0+90,y,31.5,1.3,6,mBk));
+  // nipple
+  cy('Water',x0+40,f+30,34,.8,8,mWt);cy('Water',x0+40,f+26,28,1.2,8,mWt,'z');
+  // tray (slope, back lower)
+  const tr=bx('Trays',xc,f-11,-4,90,.8,78,mTr);tr.rotation.x=-0.2;
+
+ }
+ // gutter: half pipe along x, slopes to right
+ const gy=f-3-0.24*30-4;
+ const gt=new THREE.Mesh(new THREE.CylinderGeometry(5.5,5.5,190,14,1,true,Math.PI,Math.PI),M(0xe9e4d6,{side:THREE.DoubleSide}));
+ gt.rotation.z=Math.PI/2-.03;gt.position.set(95,f-19,-43);G['Gutter + pipe'].add(gt);cy('Gutter + pipe',194,f-21,-43,4.5,10,mPv,'x');
+ // water line
+ cy('Water',87,f+34,34,.5,186,mWt,'x');
+ cy('Water',-6,f+34,0,.5,68,mWt,'z');
+});
+cy('Water',-6,114.5,-34,1.5,193,mWt);
+// tank + stand
+bx('Frame',-6,209.5,-34,30,3,30,mFr);
+cy('Water',-6,230,-34,13,38,M(0x2b7fd0,{transparent:true,opacity:.85}));
+
+// regulator
+
+// down pipe + bucket
+cy('Gutter + pipe',196,85,-43,5.5,170,mPv);
+cy('Gutter + pipe',250,6,-43,5.5,110,mPv,'x');cy('Gutter + pipe',196,6,-43,5.5,11,mPv,'x');bx('Gutter + pipe',320,2,-43,50,6,40,mDk);
+// ground
+const gr=new THREE.GridHelper(500,25,0x889,0xaab);gr.position.set(90,0,0);sc.add(gr);
+// toggles
+const tg=document.getElementById('tg');Object.keys(G).forEach(n=>{const l=document.createElement('label'),i=document.createElement('input');i.type='checkbox';i.checked=true;i.onchange=()=>G[n].visible=i.checked;l.appendChild(i);l.append(n);tg.appendChild(l)});
+(function a(){requestAnimationFrame(a);rn.render(sc,cam)})();
+</script><script>
+(function(){const R=[["Frame tube 25×25×2 mm (+10% wastage)","kg",80,120],["L-angle 25×25 (tray rail)","kg",8,110],["Floor mesh 1″×½″ 14g","sq ft",40,45],["Wall/top/door mesh 2″×1″ 14g","sq ft",120,30],["GI 0.5 mm sheet (tray)","kg",17,200],["Feeder (GI sheet)","ta",6,150],["Hay rack (6 mm rod)","ta",6,100],["Nest box (plastic/GI)","ta",6,500],["Card holder + clip","ta",6,40],["Hinge + latch (door)","ta",6,150],["Water bottle 20 L + bracket","ta",1,800],["Water pipe + fittings (1/2″ main, 3/8″ branch)","set",1,1000],["Rabbit nipple","ta",6,120],["110 mm PVC pipe (gutter+stack+drain)","m",18,280],["Y-junction, elbow, cap","set",1,1050],["Moyla pit (brick)","ta",1,5000],["Primer + paint / epoxy","set",1,3000],["Welding/fabrication labour","set",1,12000],["Transport + misc","set",1,2000]];
+const t=document.getElementById('ct'),f=n=>Math.round(n).toLocaleString('en-IN');const rs=[];
+R.forEach(r=>{const tr=t.insertRow();tr.insertCell().textContent=r[0];tr.insertCell().textContent=r[1];
+const q=document.createElement('input'),p=document.createElement('input');[q,p].forEach(i=>{i.type='number';i.className='n';i.min=0});q.value=r[2];p.value=r[3];
+tr.insertCell().appendChild(q);tr.insertCell().appendChild(p);const c=tr.insertCell();rs.push([q,p,c]);q.oninput=p.oninput=calc});
+function calc(){let sum=0;rs.forEach(a=>{const v=(+a[0].value||0)*(+a[1].value||0);a[2].textContent=f(v);sum+=v});
+document.getElementById('tot').innerHTML='Subtotal: <b>৳'+f(sum)+'</b> · +10% contingency: <b>৳'+f(sum*1.1)+'</b> · Per cage (6 ta): <b>৳'+f(sum*1.1/6)+'</b>'}
+calc()})();
+</script>
+</body></html>
